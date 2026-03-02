@@ -28,11 +28,11 @@ Dashboard starts at `http://localhost:8501`.
 
 ## 2) Demo
 # UI
-![Overview](docs\images\1-overview.png)
-![Scenarios](docs\images\2-scenarios.png)
-![Pre-Trade Check](docs\images\3-pre-trade-check.png)
-![Governance](docs\images\4-governance.png)
-![Bloter](docs\images\5-blotter.png)
+![Overview](docs/images/1-overview.png)
+![Scenarios](docs/images/2-scenarios.png)
+![Pre-Trade Check](docs/images/3-pre-trade-check.png)
+![Governance](docs/images/4-governance.png)
+![Bloter](docs/images/5-blotter.png)
 
 # Bash
 ```bash
