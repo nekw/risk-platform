@@ -1,6 +1,6 @@
 # Real-Time Risk Platform (Python + Apache Ignite)
 
-> Built a real-time sell-side risk platform in Python (FastAPI + Apache Ignite + Streamlit) featuring live trade ingestion, pre-trade limit enforcement, scenario stress-testing, and a layered enterprise architecture with dependency injection, structured logging, and domain-driven services.
+A real-time sell-side risk platform in Python (FastAPI + Apache Ignite + Streamlit) featuring live trade ingestion, pre-trade limit enforcement, scenario stress-testing, and a layered enterprise architecture with dependency injection, structured logging, and domain-driven services.
 
 Runs locally with Docker and demonstrates:
 
