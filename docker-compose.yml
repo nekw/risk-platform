@@ -1,0 +1,39 @@
+services:
+  ignite:
+    image: apacheignite/ignite:2.14.0
+    container_name: ignite-node
+    ports:
+      - "10800:10800"
+      - "47100:47100"
+    environment:
+      OPTION_LIBS: ignite-rest-http
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: risk-platform-app
+    depends_on:
+      - ignite
+    environment:
+      IGNITE_HOST: host.docker.internal
+      IGNITE_PORT: 10800
+      STREAM_SYMBOLS: "EURUSD,USDJPY,SPOT_GOLD,SPX,AAPL,US10Y,US2Y"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8000:8000"
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: risk-platform-dashboard
+    depends_on:
+      - app
+    environment:
+      API_BASE_URL: http://app:8000
+    ports:
+      - "8501:8501"
+    command: ["streamlit", "run", "dashboard/app.py", "--server.address", "0.0.0.0", "--server.port", "8501"]
